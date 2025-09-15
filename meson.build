@@ -11,7 +11,7 @@ dependencies = [
 
 exe = executable(
   'schedulers',
-  'schedulers.c',
+  'main.c',
   dependencies : dependencies,
   install : true,
 )
