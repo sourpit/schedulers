@@ -1,13 +1,7 @@
-#include <stdio.h>
+#include "schedulers.h"
 
 #define MAX_PROCESSES 5
 #define MAX_QUEUES 3
-
-typedef struct {
-  int process_id;
-  int burst_time;
-  int priority;
-} Process;
 
 void enqueue(Process *queue, int *rear, Process process) {
   queue[++(*rear)] = process;
@@ -22,6 +16,19 @@ void displayQueue(Process *queue, int front, int rear, char *queueName) {
            queue[i].burst_time, queue[i].priority);
   }
   printf("\n");
+}
+
+void mfqs(int total_processes) {
+  int pid[60];
+  int bt[60];
+
+  puts("Enter process id of all the processes:");
+  for (int i = 0; i < total_processes; i++)
+    scanf("%d", &pid[i]);
+
+  puts("Enter burst time of all the processes:");
+  for (int i = 0; i < total_processes; i++)
+    scanf("%d", &bt[i]);
 }
 
 void multilevelFeedbackQueueScheduling(Process processes[], int num_processes) {
@@ -65,18 +72,18 @@ void multilevelFeedbackQueueScheduling(Process processes[], int num_processes) {
   }
 }
 
-int main() {
-  Process processes[MAX_PROCESSES] = {
-      {1, 10, 3}, {2, 6, 5}, {3, 8, 2}, {4, 9, 1}, {5, 7, 4}};
-
-  printf("Initial Processes:\n");
-  for (int i = 0; i < MAX_PROCESSES; i++) {
-    printf("[P%d (Burst: %d, Priority: %d)] ", processes[i].process_id,
-           processes[i].burst_time, processes[i].priority);
-  }
-  printf("\n\n");
-
-  multilevelFeedbackQueueScheduling(processes, MAX_PROCESSES);
-
-  return 0;
-}
+// int main() {
+//   Process processes[MAX_PROCESSES] = {
+//       {1, 10, 3}, {2, 6, 5}, {3, 8, 2}, {4, 9, 1}, {5, 7, 4}};
+//
+//   printf("Initial Processes:\n");
+//   for (int i = 0; i < MAX_PROCESSES; i++) {
+//     printf("[P%d (Burst: %d, Priority: %d)] ", processes[i].process_id,
+//            processes[i].burst_time, processes[i].priority);
+//   }
+//   printf("\n\n");
+//
+//   multilevelFeedbackQueueScheduling(processes, MAX_PROCESSES);
+//
+//   return 0;
+// }

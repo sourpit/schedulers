@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include "schedulers.h"
 
 void sjf(int total_processes) {
   int n = total_processes;
@@ -7,7 +7,7 @@ void sjf(int total_processes) {
 
   puts("\nEnter Burst Time: \n");
   for (int i = 0; i < n; i++) {
-    printf("p%d:", i + 1);
+    printf("p%d:\n", i + 1);
     scanf("%d", &bt[i]);
     p[i] = i + 1;
   }
@@ -52,11 +52,11 @@ void sjf(int total_processes) {
 
     /* Total turnaround time */
     totalT += tat[i];
-    printf("\np%d\t %d\t %d\t %d\n", p[i], bt[i], wt[i], tat[i]);
+    printf("p%d\t %d\t\t %d\t\t %d\n", p[i], bt[i], wt[i], tat[i]);
   }
 
   /* Average turnaround time */
   avg_tat = (float)totalT / n;
   printf("\n\nAverage Waiting Time: %f", avg_wt);
-  printf("\n\nAverage Turnaround Time: %f", avg_tat);
+  printf("\nAverage Turnaround Time: %f\n", avg_tat);
 }

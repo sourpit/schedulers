@@ -12,7 +12,8 @@ void priority(int total_processes) {
   /* b is array for burst time, p for priority and index for processes id */
   int b[n], p[n], index[n];
   for (int i = 0; i < n; i++) {
-    printf("Enter Burst Time and priority Value for process %d: ", i + 1);
+    printf("Enter Burst Time and priority Value for process %d (e.g 20 30): \n",
+           i + 1);
     scanf("%d %d", &b[i], &p[i]);
     index[i] = i + 1;
   }
@@ -48,7 +49,8 @@ void priority(int total_processes) {
   puts("Process ID\t Burst Time\t Wait Time\t Turnaround Time\n");
   int wait_time = 0;
   for (int i = 0; i < n; i++) {
-    printf("P%d\t %d\t %d\t %d\n", index[i], b[i], wait_time, wait_time + b[i]);
+    printf("P%d\t\t %d\t\t %d\t\t %d\n", index[i], b[i], wait_time,
+           wait_time + b[i]);
     wait_time += b[i];
   }
 }

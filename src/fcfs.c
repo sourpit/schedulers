@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include "schedulers.h"
 
 void first_come_first_serve(int total_processes) {
   int pid[15];
@@ -10,7 +10,7 @@ void first_come_first_serve(int total_processes) {
 
   puts("Enter burst time of all the processes:");
   for (int i = 0; i < total_processes; i++)
-    scanf("%d", &pid[i]);
+    scanf("%d", &bt[i]);
 
   int i, wt[total_processes];
   wt[0] = 0;
@@ -19,11 +19,11 @@ void first_come_first_serve(int total_processes) {
   for (i = 1; i < total_processes; i++)
     wt[i] = bt[i - 1] + wt[i - 1];
 
-  puts("Process ID\t Burst Time\t Waiting Time\t Turnaround Time\n");
+  puts("Process ID\t Burst Time\t Waiting Time\tTurnaround Time\n");
   float twt = 0.0;
   float tat = 0.0;
   for (i = 0; i < total_processes; i++) {
-    printf("%d\t %d\t %d\n", pid[i], bt[i], wt[i]);
+    printf("%d\t\t %d\t\t %d\t\t", pid[i], bt[i], wt[i]);
 
     /* calculating and printing turnaround time of each process */
     printf("%d\t\n", bt[i] + wt[i]);
@@ -43,5 +43,5 @@ void first_come_first_serve(int total_processes) {
   att = tat / total_processes;
 
   printf("Avg. waiting time = %f\n", awt);
-  printf("Avg. turnaround time = %f", att);
+  printf("Avg. turnaround time = %f\n", att);
 }

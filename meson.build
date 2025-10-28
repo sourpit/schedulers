@@ -8,14 +8,4 @@ project(
 
 subdir('src')
 
-dependencies = []
-
-exe = executable(
-  'schedulers',
-  'main.c',
-  sources,
-  dependencies: dependencies,
-  install: true,
-)
-
-test('basic', exe)
+executable('schedulers', sources, include_directories: include_directories('include'))
