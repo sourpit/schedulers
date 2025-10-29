@@ -17,7 +17,7 @@ void priority(int total_processes);
 void multilevel_queue(int total_processes);
 void enqueue(Process *queue, int *rear, Process process);
 Process dequeue(Process *queue, int *front);
-void displayQueue(Process *queue, int front, int rear, char *queueName);
-void multilevelFeedbackQueueScheduling(Process processes[], int num_processes);
+void displayQueue(Process *queue, int front, int rear, const char *queueName);
+void mfqs(int total_processes, int num_queues);
 
 #endif // !SCHEDULERS_H

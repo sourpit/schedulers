@@ -3,6 +3,7 @@
 int main(void) {
   int input = 0;
   int total_processes = 0;
+  int num_queues = 0;
 
   puts("Enter the number of processes:\n");
   scanf("%d", &total_processes);
@@ -42,9 +43,15 @@ int main(void) {
       break;
 
     case 6:
-      /* TODO */
-      // multilevelFeedbackQueueScheduling(Process * processes, int
-      // num_processes);
+      printf("Enter number of queues: \n");
+      scanf("%d", &num_queues);
+
+      if (num_queues <= 0) {
+        printf("Invalid queue count.\n");
+        return 1;
+      }
+
+      mfqs(total_processes, num_queues);
       break;
 
     case 0:
